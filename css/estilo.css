@@ -1,0 +1,179 @@
+
+body{
+	background-color: #0b0b0b;
+}
+@media (min-width: 992px) {
+  .general{
+	height: 90vh;
+	/*background: url(../img/background.jpg);*/
+	background-size: 90%;
+	background-repeat: no-repeat;
+	display: flex;
+	box-sizing: border-box;
+	
+
+	}
+}
+.general{
+	height: 90vh;
+
+	display: flex;
+	box-sizing: border-box;
+	
+
+	}
+
+
+.blanco{
+	color: white!important;
+}
+.verde{
+	color: #0b9882;
+}
+.tm{
+	font-size: 3.5em;
+}
+
+.bg-light{
+	background-color: rgba(0,0,0,0)!important;
+}
+.btn{
+	color: white!important;
+	border:none;
+}
+.navbar-toggler {
+	background: #0b9882!important;
+}
+.actived{
+	background: #0b9882!important;
+}
+/*Solo en lg y md*/
+.presentation{
+	display: flex;
+	height: 90vh;
+	align-items: center;
+	justify-content: center;
+}
+
+span,h1,xmp{
+	display: inline;
+}
+xmp{
+	color: #0b9882;
+	font-size: 1.5em;
+}
+h1 span {
+    position:absolute;
+    right:0;
+    width:0;
+    background: #0b0b0b;
+    border-left: 1px solid #000;
+    height: 1.5em;
+    animation: escribir 5s steps(30) infinite alternate;
+}
+img.cloud{
+	width: 110%;
+	position: relative;
+	right: 35%;
+}
+.contenedor {
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1 { 
+	position: relative; 
+	float: left;
+	background: #0b0b0b;
+	color: #fff;
+	font-size: 3em;
+}
+@keyframes escribir {
+    from { width: 100% }
+    to { width:0 }
+}
+.centro{
+	height: 90vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.signo{
+	background-color: #0b9c85;;
+}
+p{
+	margin-bottom: 0px;
+	display: inline;
+}
+.pregunta{
+	margin-top: 50px;
+	box-sizing: content-box;
+	height: auto;
+
+}
+.consigna{
+	background-color:#1f1f1f;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+.respuesta{
+	background-color:#626262;
+	color: white;
+	border-radius: 5px;
+}
+span{
+	background-color: #0aaf73;
+	border-radius: 10px;
+	padding-right: 7px;
+	padding-left: 7px;
+	margin-right: 5px;
+}
+.logofluid{
+	max-width: 50%;
+	display: inline;
+}
+.gc{
+	background-color: #C2C0C0;
+	margin-top: 15%;
+	height: 100vh;
+}
+.tarjeta{
+	background-color: #0E0E0E;
+	height: 80vh;
+	border-radius: 20px;
+	position: relative;
+	bottom: 30%;
+	display: flex;
+	justify-content: center;
+
+}
+.muro{
+	display: flex;
+	justify-content: center;
+
+	
+}
+.post{
+	margin-top: 10px;
+	background-color: white;
+	height: 30vh;
+	width: 80%;
+	border-radius: 15px;
+	-webkit-box-shadow: 7px 6px 4px -2px rgba(115,115,115,1);
+	-moz-box-shadow: 7px 6px 4px -2px rgba(115,115,115,1);
+	box-shadow: 7px 6px 4px -2px rgba(115,115,115,1);
+	
+}
+.interna{
+
+	background-color: #C2C0C0;
+	height: 50vh;
+	border-radius: 20px;
+	position: relative;
+	width: 90%;
+	top: 35%;
+}
