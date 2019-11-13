@@ -20,7 +20,8 @@
 	  </div>
 	</div>
   </div>
-
+  
+<?=!include_once('scripts.php'); ?>
 <?=!include_once('footer.php'); ?>
 
 </body>
