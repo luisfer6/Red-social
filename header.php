@@ -19,7 +19,7 @@
 					<a class="nav-link blanco" href="#">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link blanco" href="#">Register</a>
+					<a class="nav-link blanco" href="registro.php">Register</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link blanco" href="#">Login</a>
