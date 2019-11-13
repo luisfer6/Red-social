@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+	<title>CODERS PLUG | FAQ</title>
 	<?=!include_once('head.php'); ?>
 
 <body>

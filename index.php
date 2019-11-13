@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+	<title>CODERS PLUG | HOME</title>
 	<?=!include_once('head.php'); ?>
 
 <body>

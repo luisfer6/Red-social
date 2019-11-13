@@ -13,7 +13,7 @@
 					<a class="nav-link blanco" href="index.php">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link blanco" href="preguntas.php">Question</a>
+					<a class="nav-link blanco" href="preguntas.php">FAQ</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link blanco" href="#">Contact</a>
