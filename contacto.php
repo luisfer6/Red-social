@@ -51,5 +51,38 @@
         email: username@codersplug.com</a></li>
       <li><a href="https://www.telefacil.com/wiki/index.php/Llamadas_desde_la_web">
         phone: 34-5678-9012</a></li></ol>
+    <br>
+    <h5>leave us your comment:</h5>
+    <p>
+    <label for="pagina">¿Que te parecio la pagina?</label></p>
+    <br>
+    <input type="radio" name="pagina" value="Mu"> <p>Muy buena </p>
+    <br>
+    <input type="radio" name="pagina" value="Bu"> <p>Buena, pero podria tener mayor utilidad </p>
+    <br>
+    <input type="radio" name="pagina" value="Ma"> <p>Mala </p>
+    <br>
+    <br>
+    <p>
+      <label for="recomendacion">¿Recomendarias la pagina?</label></p>
+      <br>
+      <input type="radio" name="recomendacion" value="si"> <p>Si</p>
+      <br>
+      <input type="radio" name="recomendacion" value="no"> <p>No</p>
+      <br>
+      <br>
+      <p>
+        <label for="datos">Dejanos tu comentario:</label></p>
+        <br>
+        <textarea name="name" rows="8" cols="80"></textarea>
+        <br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="Nombre" value="" placeholder="escribi tu nombre" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" name="Email" value="" placeholder="escribi tu email" required>
+        <br>
+        <button id="enviar" type="submit">Enviar</button>
+        <button id="resetear" type="reset">Resetear</button>
   </body>
 </html>
