@@ -1,0 +1,42 @@
+.ol1 a{
+  color: #0b9882;
+}
+
+.ol1{
+  text-align: right;
+  margin-right: 125px;
+}
+
+h1{
+  margin-left: 15px;
+}
+
+iframe{
+  width: 80%;
+  margin-right: 125px;
+  margin-bottom: 50px;
+}
+
+h2{
+  color: white;
+  margin-left: 40px;
+}
+
+h3{
+  color: white;
+  margin-left: 320px;
+}
+
+h4{
+  color: #0b9882;
+  text-align: center;
+}
+
+ol li{
+  list-style-type: none;
+  text-align: center;
+}
+
+li a{
+  color: white;
+}
