@@ -16,7 +16,7 @@
 					<a class="nav-link blanco" href="preguntas.php">FAQ</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link blanco" href="#">Contact</a>
+					<a class="nav-link blanco" href="contacto.php">Contact</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link blanco" href="registro.php">Register</a>
