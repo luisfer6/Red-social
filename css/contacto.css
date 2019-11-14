@@ -24,7 +24,7 @@ h2{
 
 h3{
   color: white;
-  margin-left: 320px;
+  margin-left: 380px;
 }
 
 h4{
@@ -39,4 +39,35 @@ ol li{
 
 li a{
   color: white;
+}
+
+h5{
+  color: white;
+  margin-left: 30px;
+}
+
+label{
+  color: #0b9882;
+  text-align: center;
+  margin-left: 60px;
+}
+
+p{
+  color: white;
+}
+
+#enviar{
+  background-color: #0b9882;
+  color: white;
+  margin-left: 60px;
+}
+
+#resetear{
+  background-color: #0b9882;
+  color: white;
+}
+
+button{
+  width: 8%;
+  margin-left: 60px;
 }
