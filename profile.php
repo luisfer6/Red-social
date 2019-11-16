@@ -62,15 +62,15 @@
   				</div>
   				
   			
-  				<div class="post">
-  					
-  				</div>
-  				<div class="post">
-  					
-  				</div>
-  				<div class="post">
-  					
-  				</div>
+  				<div class="fixed">
+        
+          <?php for($i=0; $i<11;$i++) : ?>
+            <div class="post">
+            
+          </div>
+          <?php endfor ?>
+         </div>
+      
   			
   		</div>
   		

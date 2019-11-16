@@ -22,34 +22,10 @@
   					<h2 class="blanco "><span class="verde">I</span>ntereses de : @Username</h2>
   				</div>
   			 <div class="Listadeamigos">
-          <div class="text-center  amigosmall ">
-            <div class="row">
-              <div class="col-4">
-                <img class="profileimg" style="width: 100%" src="img/profile.jpg">
-              </div>
-
-              <div class="col-7">
-                <h5 class="blanco">USERNAME</h5>
-                <div class="text-left">
-                  <h6 class="Skillsmini">Skills</h6>
-                  <h6 class="Skillsmini">Channels</h6>
-                  <h6 class="Skillsmini">Studies</h6>
-                  <h6 class="Skillsmini">Interest</h6>
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">X</button>
-                  </div>
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">MP</button>
-                  </div>
-                  
-                
-              </div>
-                
-              </div>  
-              </div>
-            </div>
+          
+            <div class="fixed">
+        
+          <?php for($i=0; $i<11;$i++) : ?>
             <div class="text-center  amigosmall ">
             <div class="row">
               <div class="col-4">
@@ -78,6 +54,10 @@
               </div>  
               </div>
             </div>
+          <?php endfor ?>
+         </div>
+         
+            
 
 
          </div>

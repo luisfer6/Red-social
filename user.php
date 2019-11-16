@@ -21,16 +21,16 @@
   				<div class="text-center  ">
   					<h2 class="blanco "><span class="verde">H</span>ome</h2>
   				</div>
-  			
-  				<div class="post">
-  					
-  				</div>
-  				<div class="post">
-  					
-  				</div>
-  				<div class="post">
-  					
-  				</div>
+  			   <div class="fixed">
+          
+            <?php for($i=0; $i<11;$i++) : ?>
+              <div class="post">
+              
+            </div>
+            <?php endfor ?>
+         </div>
+  				
+  				
   			
   		</div>
   		<div class="colizq col-4 d-none d-lg-block">
