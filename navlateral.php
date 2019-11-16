@@ -6,3 +6,4 @@
 	    			  <a class="nav-link blanco" href="#"  ><span class="verde">R</span>ecluiters</a>
 	    			  <a class="nav-link blanco" href="#"  ><span class="verde">C</span>ourses</a>
               		  <a class="nav-link blanco" href="friends.php"  ><span class="verde">I</span>nterest</a>
+              		  <a class="nav-link blanco" href="index.php"  ><span class="verde">S</span>alir</a>
