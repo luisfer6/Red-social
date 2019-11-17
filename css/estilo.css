@@ -155,12 +155,13 @@ h2,a.nav-link{
 	justify-content: center;
 }
 .post{
-	background:#C7C7C7;
+	background:#12443d;
 	max-width: 90%;
-	height: 30vh;
+	height: auto;
 	margin-left: 5%;
 	border-radius: 15px;
 	margin-bottom: 10px;
+	border: white 1px solid;
 }
 .btn-central{
 	background:#0b9882;
@@ -262,9 +263,11 @@ h4{
 	background: yellow;
 	border-radius: 10px;
 	height: auto;
-	background: rgb(255,72,0);
+	/*background: rgb(255,72,0);*/
 	box-sizing: border-box;
-	background: linear-gradient(90deg, rgba(255,72,0,1) 0%, rgba(255,164,6,1) 100%, rgba(29,29,29,1) 100%);
+	/*background: linear-gradient(90deg, rgba(255,72,0,1) 0%, rgba(255,164,6,1) 100%, rgba(29,29,29,1) 100%);*/
+	background: rgb(11,148,126);
+background: radial-gradient(circle, rgba(11,148,126,1) 0%, rgba(22,23,23,1) 100%, rgba(29,29,29,1) 100%);
 }
 
 .profileimg{
@@ -315,7 +318,7 @@ background: radial-gradient(circle, rgba(12,121,104,1) 0%, rgba(2,52,44,1) 100%,
 	width: 15%;
 	position: fixed;
 	right: 75%;
-	top: 60%;
+	top: 90%;
 	z-index: 10;
 }
 .dropdown-menu{
@@ -350,4 +353,51 @@ a.dropdown-item{
 }
 .fixed::-webkit-scrollbar{
 	display: none;
+}
+.menuflotante2{
+	width: 20%;
+	position: relative;Ç
+	top: 40%;
+	left: 120%;
+	z-index: 2;
+}
+.menuflotante3{
+	width: 20%;
+	position: relative;
+	margin-top: 78%;
+	left: 120%;
+	z-index: 2;
+}
+.comentario{
+	padding: 0% 4% 4% 4%;
+	font-family: 'Ubuntu', sans-serif;
+	color: white;
+}
+.post img{
+	max-width: 100%;
+	margin: 15% 0% 0% 15%;
+	border-radius: 50%;
+}
+.name{
+	margin-top: 1%;	
+	padding-left: 0px;
+}
+.blanco{
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}
+.cabezapost{
+	font-family: 'Alatsi', sans-serif;
+	color: white;
+}
+.comentarios{
+	border-radius: 50px;
+	width: 90%;
+	height: 6vh!important;
+	margin: 0 auto;
+	font-family: 'Righteous', cursive;
+
+}
+.username{
+	color:#ebe770;
 }

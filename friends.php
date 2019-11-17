@@ -15,8 +15,10 @@
   			  </a>
     			  <?=!include('navlateral.php') ?>
 			 </div>
-			
-  		</div>
+  			<div class="col-12">
+             <a href="friends.php"><img class="menuflotante3" src="img/menu.png"></a>
+            </div>
+    		</div>
   		<div class="col-lg-5 col-md-7 col-sm-12" >
   				<div class="text-center friendscabecera ">
   					<h2 class="blanco "><span class="verde">I</span>ntereses de : @Username</h2>
@@ -58,7 +60,9 @@
          </div>
          
             
-
+         <div class="d-block d-sm-block d-md-none">
+           <a href="friends.php"><img class="menuflotante" src="img/menu.png"></a>
+         </div>
 
          </div>
   				

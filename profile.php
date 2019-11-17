@@ -24,7 +24,9 @@
 	  			  	<h6 class="option">Interest</h6>
   			  	</div>
   			  </div>
-    			  
+    			 <div class="col-12">
+           <a href="profile.php"><img class="menuflotante2" src="img/menu.png"></a>
+          </div>
 			 </div>
 			
   		</div>
@@ -66,11 +68,28 @@
         
           <?php for($i=0; $i<11;$i++) : ?>
             <div class="post">
-            
+            <div class="row">
+              <div class="col-2">
+                  <img  src="img/profile.jpg">
+              </div>
+              <div class="col-10 name" >
+                <h3 style="color:#ebe770;">Username</h3>
+                <p class="blanco">hace xx minutos</p>
+              </div>
+            </div> <!--ROW-->
+            <div class="comentario">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control comentarios" placeholder="Escribi tu comentario"></textarea>
+            </div>
           </div>
           <?php endfor ?>
          </div>
-      
+         <div class="d-block d-sm-block d-md-none">
+           <a href="profile.php"><img class="menuflotante" src="img/menu.png"></a>
+         </div>
   			
   		</div>
   		
