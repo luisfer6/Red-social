@@ -23,11 +23,12 @@
 		        <a class="nav-link blanco" href="register.php">Register</a>
 		      </li>	     
 		    </ul>
-		    <form action="profile.php" class="form-inline my-2 my-lg-0">
+		    <form action="validacionuser.php" class="form-inline my-2 my-lg-0">
 		      <input class="form-control mr-sm-2" type="text" placeholder="Usuario" >
 		      <input class="form-control mr-sm-2" type="password" placeholder="Contraseña">
 		      <button class="btn btn-success my-2 my-sm-0" type="submit">Entrar</button>
 		    </form>
+
 		  </div>
 		</nav>
   </header>

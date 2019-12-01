@@ -31,9 +31,12 @@
 					      <li class="nav-item">
 					        <a class="nav-link blanco" href="#">Courses</a>
 					      </li>
-                <li class="nav-item">
-                  <a class="nav-link blanco" href="friends.php">Interest</a>
-                </li>        
+					      <li class="nav-item">
+					        <a class="nav-link blanco" href="userconfig.php">Cambiar configuracion</a>
+					      </li>
+			              <li class="nav-item">
+			                  <a class="nav-link blanco" href="friends.php">Interest</a>
+			              </li>        
 					    </ul>
 					    
 					  </div>
