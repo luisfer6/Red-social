@@ -65,7 +65,7 @@ function crear_db(){
 //Funcion que valida si alguien introdujo un numero en un string//
 function validacion($string){
 
-	$abc="abcdefghijkmnñopqrstuvwxyzABCDEFGHIJKMNÑOPQRSTUVWXYZ";
+	$abc="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 	for ($i=0; $i<strlen($string) ; $i++) { 
 		if(strpos($abc,substr($string,$i,1))===false){
 			return false;

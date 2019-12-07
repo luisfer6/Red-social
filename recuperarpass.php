@@ -33,7 +33,7 @@ if(isset($_POST["email"]) && !empty($_POST["email"])){
      $estados["consultaClase"]="d-none";
      $estados["preguntaClase"]="";
      $pregunta=$value["pregyrest"]["pregunta"];
-   }else{
+   }else if(empty($_POST["email"])){
     header('Location:recuperarpass.php'."?process=302");
    }
   }
