@@ -37,7 +37,7 @@
               </div>
               <div class="form-group">
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck" name="recordar">
                   <label class="form-check-label" for="dropdownCheck">
                     Recordar usuario
                   </label>
@@ -46,7 +46,7 @@
               <input type="submit" class="btn btn-primary" value="Entrar">
             </form>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Olvide mi password</a>
+            <a class="dropdown-item" href="recuperarpass.php">Olvide mi password</a>
           </div>
         </div>
 

@@ -5,7 +5,8 @@ $error=[
 
 "nombre" => [],
 "apellido" => [],
-"email" => []
+"email" => [],
+"pregunta" =>[]
 
 ];
 
@@ -44,12 +45,18 @@ $mensajeClases=[
 				  "input_color" => "",
 				  "input_placeholder" => ""
 				],
+	"pregyrest" => [ "clase" => "d-none",
+				  "placeholder" => "",
+				  "mensaje" => "",
+				  "input_color" => "",
+				  "input_placeholder" => ""
+				  ],
 ];
 
 // Funcion creadora del archivo json en caso de no existir//
 function crear_db(){
 	global $user;
-	$usuarios=["usuarios" => [$user]];
+	$usuarios=["usuarios" => []];
 	$usuario_json= json_encode($usuarios);
 	file_put_contents("users.txt", $usuario_json);
 }
@@ -74,6 +81,19 @@ function validacion($string){
 function validacionDatos($datos){
 	global $error;
 	global $mensajeClases;
+
+	if(empty($_POST["pregunta"]) || empty($_POST["respuesta"])){
+		$error["pregunta"][]=["error","002"];
+		$mensajeClases["pregyrest"]["clase"]="campo-invalido";
+		$mensajeClases["pregyrest"]["mensaje"]="campo obligatorio";
+		$mensajeClases["pregyrest"]["input_color"]="is-invalid";
+	}else{
+		$mensajeClases["pregyrest"]["input_color"]="is-valid";
+		$mensajeClases["pregyrest"]["input_placeholder"]=$datos["respuesta"];
+	}
+
+
+
 	if(strlen($datos["nombre"])==0){
 		$error["nombre"][]=["error","002"];
 		$mensajeClases["nombre"]["clase"]="campo-invalido";
@@ -158,21 +178,26 @@ function validacionDatos($datos){
 			$mensajeClases["email"]["input_placeholder"]=$datos["email"];
 		}
 	}
-	if(count($error["nombre"])==0 && count($error["apellido"])==0 && count($error["email"])==0){
+	if(count($error["nombre"])==0 && count($error["apellido"])==0 && count($error["email"])==0  && count($error["pregunta"])==0){
 		    $profile_img="img/profile.jpg";
 		    if($_FILES["foto"]["error"]==0){
 		      move_uploaded_file($_FILES["foto"]["tmp_name"], "profileimg/".$_FILES["foto"]["name"]);
 		      $profile_img="profileimg/".$_FILES["foto"]["name"];
 		    }
+		    if(isset($db_user_array)){
+		    	$id=1;
+		    }else{
+		    $id=$db_user_array["usuarios"][count($db_user_array)-1]["id"]+1;}
 		    $user=[
-		    "id" =>rand ( 0 , 5000000 ),
+		    "id" => $id,
 		    "foto_perfil" => $profile_img,
 		    "tipo_user" => $_POST["tipousuario"],
 		    "name" => $_POST["nombre"],
 		    "apellido" => $_POST["apellido"],
 		    "email" => $_POST["email"],
 		    "sexo" => $_POST["genero"],
-		    "password" => $_POST["password"],
+		    "password" => password_hash($_POST["password"], PASSWORD_DEFAULT),
+		    "pregyrest" => [ "pregunta"=>$_POST["pregunta"], "respuesta"=>$_POST["respuesta"] ],
 		    "skills" => [],
 		    "channels" => [],
 		    "studies" => [],
@@ -217,6 +242,12 @@ function validacionDatos($datos){
 							  "input_color" => "",
 							  "input_placeholder" => ""
 							],
+				"pregyrest" => [ "clase" => "d-none",
+							  "placeholder" => "",
+							  "mensaje" => "",
+							  "input_color" => "",
+							  "input_placeholder" => ""
+							  ]
 			];
 	}
 

@@ -1,4 +1,13 @@
 <?php 
+
+if(isset($_COOKIE["email"])){
+  
+    $_SESSION["usuario"]=$_COOKIE["email"];
+    
+      
+}
+
+
 session_start();
 if(!isset($_SESSION['usuario']))
 {
@@ -112,10 +121,7 @@ if(!isset($_SESSION['usuario']))
         
           <div class="col-12">
           <nav class="navbar navbar-light bg-light justify-content-between">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar en CoderPlug" aria-label="Search">
-          <button class="btn btn-central btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+        <?php include('busqueda.php'); ?>
       </nav>
       </div>
       <div></div>

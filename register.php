@@ -43,22 +43,25 @@ if(isset($_SESSION["usuario"])){
               <article class="card-body">
 <!--FORMULARIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
                 <form method="post" action="register.php" enctype="multipart/form-data">
-                  <div class="form-row">
+                  <div class="form-group">
                     <div class="input-group mb-3">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input"  name="foto">
                         <label class="custom-file-label" for="inputGroupFile01">Subi tu foto de perfil</label>
                       </div>
                     </div>
-                    <div class="col form-group" >
-                      <label>Tipo de Usuario</label>   
-                      <select name="tipousuario" id="tipousuario" class="form-control">
-                        <option value="coder">
-                          Coder
-                        </option>
-                      </select>
-                    </div> <!-- form-group -->
                   </div>
+                    <!--TIPO DE USUARIO-->
+                    <div class="form-group">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Tipo de usuario</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" name="tipousuario">
+                          <option selected value="coder">Coder</option>
+                        </select>
+                      </div>
+                    </div>                  
                   <div class="form-row">
                     <div class="col form-group ">  
                       <input type="text" name="nombre" id="nombre" class="form-control <?php echo $mensajeClases["nombre"]["input_color"] ?> " placeholder="Nombre" value="<?php echo $mensajeClases["nombre"]["input_placeholder"] ?>">
@@ -80,7 +83,24 @@ if(isset($_SESSION["usuario"])){
                         <?php echo $mensajeClases["email"]["mensaje"] ?>
                       </div>
                     
-                  </div> <!-- form-group -->
+                  </div>
+                  <!--Pregunta secreta-->
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control <?php echo $mensajeClases["pregyrest"]["input_color"] ?> " placeholder="Respuesta" name="respuesta" value="<?php echo $mensajeClases["pregyrest"]["input_placeholder"] ?>">
+                           <select class="custom-select" id="inputGroupSelect02" name="pregunta">
+                              <option selected>Pregunta secreta</option>
+                              <option value="Amor platonico">Amor platonico</option>
+                              <option value="1ra Mascota de la infancia">1ra Mascota de la infancia</option>
+                              <option value="Apellido materno">Apellido materno</option>
+                              <option value="Primer empleo">Primer empleo</option>
+                              <option value="Nombre de tu primer pareja">Nombre de tu primer pareja</option>
+                            </select>
+                        </div>
+                         <div class="<?php echo $mensajeClases["pregyrest"]["clase"] ?>">
+                          <?php echo $mensajeClases["pregyrest"]["mensaje"] ?>
+                        </div>
+
+                   <!-- form-group -->
                   <div class="form-group">
                     <label class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="genero" id="genero" value="male" required>
@@ -98,9 +118,6 @@ if(isset($_SESSION["usuario"])){
                       </div>
                     
                   </div> <!-- form-group -->
-                  <div class="form-group">
-                    <small class="form-text text-muted">No compartas tus datos con nadie.</small>
-                  </div>
                   <div class="form-group">
                     <button type="submit" name="submit" class="btn btn-primary btn-block"> Registrarse  </button>
                   </div> <!-- form-group -->                                                

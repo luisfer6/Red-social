@@ -5,6 +5,12 @@ if(!isset($_SESSION['usuario']))
   header('Location:index.php');
 }
 
+if(isset($_COOKIE["email"])){
+  
+    $_SESSION["usuario"]=$_COOKIE["email"];
+    
+      
+}
 
 
 if(isset($_SESSION["usuario"])){
@@ -135,11 +141,14 @@ if(isset($_SESSION["usuario"])){
               </div>
               <div class="col-10 name" >
                 <h3 style="color:#ebe770;">Username</h3>
-                <p class="blanco">hace xx minutos</p>
+ 
+
+                
+                <p class="blanco">hace </p>
               </div>
             </div> <!--ROW-->
             <div class="comentario">
-              <p><?php echo $key ?></p>
+              <p><?php echo $key["contenido"] ?></p>
             </div>
             <div class="form-group">
               <textarea class="form-control comentarios" placeholder="Escribi tu comentario"></textarea>
@@ -157,10 +166,7 @@ if(isset($_SESSION["usuario"])){
   			
   				<div class="col-12">
   				<nav class="navbar navbar-light bg-light justify-content-between">
-			  <form class="form-inline">
-			    <input class="form-control mr-sm-2" type="search" placeholder="Buscar en CoderPlug" aria-label="Search">
-			    <button class="btn btn-central btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-			  </form>
+			     <?php include('busqueda.php'); ?>
 				  <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
              <?=!include('navlateral.php') ?>
 				 </div>
