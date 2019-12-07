@@ -27,16 +27,20 @@ if(isset($_POST["email"]) && !empty($_POST["email"])){
 
   $db_json=file_get_contents('users.txt');
   $db=json_decode($db_json,true);
+  $estado=false;
   foreach ($db["usuarios"] as $key => $value) {
    if ($value["email"]==$_POST["email"]) {
      $objetoUsuario=$value;
      $estados["consultaClase"]="d-none";
      $estados["preguntaClase"]="";
      $pregunta=$value["pregyrest"]["pregunta"];
-   }else if(empty($_POST["email"])){
-    header('Location:recuperarpass.php'."?process=302");
+     $estado=true;
    }
   }
+  if(!$estado){
+    header('Location:recuperarpass.php'."?process=302");
+  }
+    
 
 
 }
