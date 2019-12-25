@@ -1,20 +1,17 @@
 <?php 
+require_once('models/querysModel.php');
+require_once('models/coderModel.php');
 session_start();
 
-$db=file_get_contents('users.txt');
-$db_decode=json_decode($db,true);
 $contenido=$_POST["comentario"];
 $time=new DateTime();
 $post=["time"=> $time, "contenido" => $contenido];
 
-for ($i=0; $i<count($db_decode["usuarios"]) ; $i++) { 
-	if($db_decode["usuarios"][$i]["email"]==$_SESSION["usuario"]){		
-		$db_decode["usuarios"][$i]["post"][]=$post;
 
-	}
-}
-$db_encode=json_encode($db_decode);
-file_put_contents('users.txt', $db_encode);
+$query= new Querys();
+$usuario= $query->setUserDB($_SESSION["usuario"]);
+$usuario->agregarPost($post);
+$query->UpdateUser($usuario);
 header('Location:profile.php');
 
 

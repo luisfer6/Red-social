@@ -1,22 +1,19 @@
 <?php 
-
+require_once('models/querysModel.php');
+require_once('models/coderModel.php');
 session_start();
 if(!isset($_SESSION['usuario']))
 {
   header('Location:index.php');
 }
 
-$db=file_get_contents('users.txt');
-$db_decode=json_decode($db,true);
 
-for ($i=0; $i<count($db_decode["usuarios"]) ; $i++) { 
-	if($db_decode["usuarios"][$i]["email"]==$_SESSION["usuario"]){		
-		$db_decode["usuarios"][$i]["skills"][]=$_POST["skills"];
-	}
-}
-$db_encode=json_encode($db_decode);
-file_put_contents('users.txt', $db_encode);
+$query= new Querys();
+$usuario= $query->setUserDB($_SESSION["usuario"]);
+$usuario->setSkills($_POST["skills"]);
+$query->UpdateUser($usuario);
 header('Location:profile.php');
+
 
 
  ?>

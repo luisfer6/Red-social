@@ -1,4 +1,6 @@
 <?php 
+require_once('models/querysModel.php');
+require_once('models/coderModel.php');
 if(isset($_COOKIE["email"])){
   
     $_SESSION["usuario"]=$_COOKIE["email"];
@@ -40,78 +42,44 @@ if(!isset($_SESSION['usuario']))
   			 <div class="Listadeamigos">
           
             <div class="fixed">
-        <?php 
-        $friends_json=file_get_contents('users.txt');
-        $friends=json_decode($friends_json,true);
-        foreach ($friends["usuarios"] as $key => $value) :
-          if($value["email"]==$_SESSION["usuario"]):
+              <?php 
+              $query= new Querys();
+              $user= $query->setUserDB($_SESSION["usuario"]);
 
-            foreach ($value["interest"] as $key ) : ?>
+              foreach ($user->getFriends() as $email ) : ?>
 
-              <div class="text-center  amigosmall ">
-            <div class="row">
-              <div class="col-4">
-                <img class="profileimg" style="width: 100%" src="img/profile.jpg">
-              </div>
+                  <div class="text-center  amigosmall ">
+                  <div class="row">
+                    <div class="col-4">
+                      <img class="profileimg" style="width: 100%" src="img/profile.jpg">
+                    </div>
 
-              <div class="col-7">
-                <h5 class="blanco"><?= $key ?></h5>
-                <div class="text-left">
-                  <h6 class="Skillsmini">Skills</h6>
-                  <h6 class="Skillsmini">Channels</h6>
-                  <h6 class="Skillsmini">Studies</h6>
-                  <h6 class="Skillsmini">Interest</h6>
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">X</button>
-                  </div>
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">MP</button>
-                  </div>
-                  
-                
-              </div>
-                
-              </div>  
-              </div>
-            </div>
-            
-            <?php endforeach;
-          endif;
-        endforeach;
-
-         ?>
-          <!--<?php for($i=0; $i<11;$i++) : ?>
-            <div class="text-center  amigosmall ">
-            <div class="row">
-              <div class="col-4">
-                <img class="profileimg" style="width: 100%" src="img/profile.jpg">
-              </div>
-
-              <div class="col-7">
-                <h5 class="blanco">USERNAME</h5>
-                <div class="text-left">
-                  <h6 class="Skillsmini">Skills</h6>
-                  <h6 class="Skillsmini">Channels</h6>
-                  <h6 class="Skillsmini">Studies</h6>
-                  <h6 class="Skillsmini">Interest</h6>
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">X</button>
-                  </div>
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">MP</button>
+                    <div class="col-7">
+                      <h5 class="blanco"><?= $email ?></h5>
+                      <div class="text-left">
+                        <h6 class="Skillsmini">Skills</h6>
+                        <h6 class="Skillsmini">Channels</h6>
+                        <h6 class="Skillsmini">Studies</h6>
+                        <h6 class="Skillsmini">Interest</h6>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <button type="button" class="btn btn-light">X</button>
+                        </div>
+                        <div class="col-6">
+                          <button type="button" class="btn btn-light">MP</button>
+                        </div>
+                        
+                      
+                    </div>
+                      
+                    </div>  
+                    </div>
                   </div>
                   
+                  <?php endforeach; ?>
+
                 
-              </div>
-                
-              </div>  
-              </div>
-            </div>
-          <?php endfor ?> -->
          </div>
          
             

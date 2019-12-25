@@ -1,10 +1,10 @@
 <?php
-
+require_once('models/querysModel.php');
 session_start();
 if(isset($_SESSION["usuario"])){
   header('Location:profile.php');
 }
-
+$query= new Querys();
 $estados=[
 "consultaClase" => "",
 "botonRecuperar" => "",
@@ -24,8 +24,15 @@ if(isset($_GET["process"])){
 }
 
 if(isset($_POST["email"]) && !empty($_POST["email"])){
-
-  $db_json=file_get_contents('users.txt');
+  
+  $usuario= $query->setUserDB($_POST["email"]);
+  if($usuario){
+    $estados["consultaClase"]="d-none";
+    $estados["preguntaClase"]="";
+    $pregunta=$usuario->getPregunta();
+    $estado=true;
+  }
+  /*$db_json=file_get_contents('users.txt');
   $db=json_decode($db_json,true);
   $estado=false;
   foreach ($db["usuarios"] as $key => $value) {
@@ -36,7 +43,7 @@ if(isset($_POST["email"]) && !empty($_POST["email"])){
      $pregunta=$value["pregyrest"]["pregunta"];
      $estado=true;
    }
-  }
+  }*/
   if(!$estado){
     header('Location:recuperarpass.php'."?process=302");
   }
@@ -45,8 +52,19 @@ if(isset($_POST["email"]) && !empty($_POST["email"])){
 
 }
 if(isset($_POST["respuesta"]) && !empty($_POST["respuesta"])){
+  $usuario= $query->setUserDB($_POST["email"]);
+  if($usuario){
+    if($_POST["respuesta"]==$usuario->getRespuesta()){
+      echo "LLEGUE ACA";
+      $estados["preguntaClase"]="d-none";
+      $estados["contraseña"]="";
+      $estados["valueContraseña"]=$usuario->getPassword();
+    }else{
+      header('Location:recuperarpass.php'."?process=303");
+    }
+  }
 
-$db_json=file_get_contents('users.txt');
+/*$db_json=file_get_contents('users.txt');
   $db=json_decode($db_json,true);
   foreach ($db["usuarios"] as $key => $value) {
    if ($value["email"]==$_POST["email"]) {
@@ -57,13 +75,20 @@ $db_json=file_get_contents('users.txt');
    }else{
     header('Location:recuperarpass.php'."?process=303");
    }
-  }
+  }*/
 
 
-}}
+
+}
 if(isset($_POST["cambiar"]) && !empty($_POST["cambiar"])){
+$usuario= $query->setUserDB($_POST["email"]);
+if($usuario){
+  $usuario->setPassword(password_hash($_POST["cambiar"], PASSWORD_DEFAULT));
+  $query->UpdateUser($usuario);
+  header('Location:recuperarpass.php'."?process=success");
+}
 
-  $db_json=file_get_contents('users.txt');
+  /*$db_json=file_get_contents('users.txt');
   $db=json_decode($db_json,true);
   for ($i=0; $i < count($db["usuarios"]) ; $i++) { 
     if($_POST["email"]==$db["usuarios"][$i]["email"]){
@@ -73,7 +98,7 @@ if(isset($_POST["cambiar"]) && !empty($_POST["cambiar"])){
   }
   $db_json=json_encode($db);
   file_put_contents('users.txt', $db_json);
-  header('Location:recuperarpass.php'."?process=success");
+  header('Location:recuperarpass.php'."?process=success");*/
 
 }
 
@@ -125,7 +150,7 @@ if(isset($_POST["cambiar"]) && !empty($_POST["cambiar"])){
                 <form method="post" action="recuperarpass.php" class="<?php echo $estados["preguntaClase"] ?>">
                   
                   <div class="form-group">
-                    <input type="text" class="form-control" readonly="readonly" value="<?php echo $pregunta."?"; ?>"> <input type="hidden" name="email" value="<?php echo $objetoUsuario["email"] ?>">    
+                    <input type="text" class="form-control" readonly="readonly" value="<?php echo $pregunta."?"; ?>"> <input type="hidden" name="email" value="<?php echo $usuario->getEmail() ?>">    
                   </div>
                    <div class="form-group">
                     

@@ -1,4 +1,7 @@
 <?php 
+require_once('models/querysModel.php');
+require_once('models/coderModel.php');
+
 session_start();
 if(!isset($_SESSION['usuario']))
 {
@@ -14,16 +17,8 @@ if(isset($_COOKIE["email"])){
 
 
 if(isset($_SESSION["usuario"])){
-  $usuarios=file_get_contents("users.txt");
-  $usuariosArray=json_decode($usuarios,true);
-  foreach ($usuariosArray["usuarios"] as $key => $usuario) {
-
-    if($usuario["email"]==$_SESSION["usuario"]){
-    
-    $usuarioDatos=$usuario;    
-      
-    }
-  }
+ $query= new Querys();
+ $usuario= $query->setUserDB($_SESSION["usuario"]);
 }
 
 
@@ -50,22 +45,24 @@ if(isset($_SESSION["usuario"])){
     				<img src="img/title.png" width="150" height="auto" alt="">
   			  </a>
   			  <div class="profile ">
-  			  	<img class="profileimg" src="<?php echo $usuarioDatos["foto_perfil"]?>">
-  			  	<h3 class="username"><?php echo $usuarioDatos["name"] ?></h3>
+  			  	<img class="profileimg" src="<?php echo $usuario->getFoto() ?>">
+  			  	<h3 class="username"><?php echo $usuario->getNombre() ?></h3>
   			  	<h4 class="rol">Coder</h4>
   			  	<div>
   			  		<h6 class="option">Skills</h6>
-              <?php foreach ($usuarioDatos["skills"] as $key ) : ?>
+              <?php foreach ($usuario->getSkills() as $key ) : ?>
                 <small><span class="blanco"><?php echo $key?></span></small>
               <?php endforeach ?>
 	  			  	<h6 class="option">Channels</h6>
-              <?php foreach ($usuarioDatos["channels"] as $key ) : ?>
+              <?php foreach ($usuario->getChannels() as $key ) : ?>
                 <a href="http://<?php echo $key[0] ?>"><small><span class="blanco"><?php echo $key[1] ?></span></small></a>
               <?php endforeach ?>
 	  			  	<h6 class="option">Studies</h6>
-              <?php foreach ($usuarioDatos["studies"] as $key ) : ?>
+
+              <?php foreach ($usuario->getStudies() as $key ) : ?>
                 <small><span class="blanco"><?php echo $key ?></span></small>
               <?php endforeach ?>
+
 	  			  	<h6 class="option">Interest</h6>
   			  	</div>
   			  </div>
@@ -87,18 +84,18 @@ if(isset($_SESSION["usuario"])){
   						</div>
 
   						<div class="col-7">
-  							<h5>USERNAME</h5>
+  							<h5><?php $usuario->getNombre() ?></h5>
   							<div class="text-left">
   								<h6 class="Skillsmini">Skills</h6>
-                  <?php foreach ($usuarioDatos["skills"] as $key ) : ?>
+                  <?php foreach ($usuario->getSkills() as $key ) : ?>
                     <small><span class="blanco"><?php echo $key?></span></small>
                   <?php endforeach ?>
 	  							<h6 class="Skillsmini">Channels</h6>
-                  <?php foreach ($usuarioDatos["channels"] as $key ) : ?>
+                  <?php foreach ($usuario->getChannels() as $key ) : ?>
                     <a href="http://<?php echo $key[0] ?>"><small><span class="blanco"><?php echo $key[1] ?></span></small></a>
                   <?php endforeach ?>
 	  							<h6 class="Skillsmini">Studies</h6>
-                  <?php foreach ($usuarioDatos["studies"] as $key ) : ?>
+                  <?php foreach ($usuario->getStudies() as $key ) : ?>
                     <small><span class="blanco"><?php echo $key ?></span></small>
                   <?php endforeach ?>
 	  							<h6 class="Skillsmini">Interest</h6>
@@ -133,7 +130,7 @@ if(isset($_SESSION["usuario"])){
             </div>
           
          
-         <?php foreach ($usuarioDatos["post"] as $key ) : ?>
+         <?php foreach ($usuario->getPosts() as $key ) : ?>
             <div class="post">
             <div class="row">
               <div class="col-2">
@@ -144,7 +141,7 @@ if(isset($_SESSION["usuario"])){
  
 
                 
-                <p class="blanco">hace </p>
+                <p class="blanco"><?php echo $key["time"]["date"] ?></p>
               </div>
             </div> <!--ROW-->
             <div class="comentario">

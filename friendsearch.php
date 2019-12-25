@@ -1,4 +1,6 @@
 <?php 
+require_once('models/querysModel.php');
+require_once('models/coderModel.php');
 if(isset($_COOKIE["email"])){
   
     $_SESSION["usuario"]=$_COOKIE["email"];
@@ -44,79 +46,51 @@ if(!isset($_SESSION['usuario']))
 
         <?php 
         if($_GET){
-        $friends_json=file_get_contents('users.txt');
-        $friends=json_decode($friends_json,true);
-        foreach ($friends["usuarios"] as $key => $value) :
-          
-          if($value["name"]==$_GET["nombre"]) : ?>
-            <div class="text-center  amigosmall ">
-            <div class="row">
-              <div class="col-4">
-                <img class="profileimg" style="width: 100%" src="img/profile.jpg">
-              </div>
+          $query= new Querys();
+          $usuarios= $query->ArrayUser($_GET["nombre"]);
 
-              <div class="col-7">
-                <h5 class="blanco"><?= $value["name"]." ".$value["apellido"]  ?></h5>
-                <div class="text-left">
-                  <h6 class="Skillsmini">Skills</h6>
-                  <h6 class="Skillsmini">Channels</h6>
-                  <h6 class="Skillsmini">Studies</h6>
-                  <h6 class="Skillsmini">Interest</h6>
+            foreach ($usuarios as $user ) : ?>
+              
+                <div class="text-center  amigosmall ">
+                 <div class="row">
+                  <div class="col-4">
+                    <img class="profileimg" style="width: 100%" src="img/profile.jpg">
+                  </div>
+
+                  <div class="col-7">
+                    <h5 class="blanco"><?= $user->getNombre()." ".$user->getApellido()  ?></h5>
+                    <div class="text-left">
+                      <h6 class="Skillsmini">Skills</h6>
+                      <h6 class="Skillsmini">Channels</h6>
+                      <h6 class="Skillsmini">Studies</h6>
+                      <h6 class="Skillsmini">Interest</h6>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <form action="addfriend.php" method="post">
+                          <input type="hidden" name="email" value="<?php echo $user->getEmail()  ?>">
+                          <input type="submit" class="btn btn-light" value="A+">
+                        </form>
+                      </div>
+                      <div class="col-6">
+                        <button type="button" class="btn btn-light">MP</button>
+                      </div>
+                      
+                    
+                  </div>
+                    
+                  </div>  
+                  </div>
                 </div>
-                <div class="row">
-                  <div class="col-6">
-                    <form action="addfriend.php" method="post">
-                      <input type="hidden" name="email" value="<?php echo $value['email']  ?>">
-                      <input type="submit" class="btn btn-light" value="A+">
-                    </form>
-                  </div>
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">MP</button>
-                  </div>
-                  
-                
-              </div>
-                
-              </div>  
-              </div>
-            </div>
 
-         <?php  endif;
+             
 
-        endforeach;
+           <?php endforeach;
+
         }
          ?>
          
-         <!-- <?php for($i=0; $i<11;$i++) : ?>
-            <div class="text-center  amigosmall ">
-            <div class="row">
-              <div class="col-4">
-                <img class="profileimg" style="width: 100%" src="img/profile.jpg">
-              </div>
 
-              <div class="col-7">
-                <h5 class="blanco">USERNAME</h5>
-                <div class="text-left">
-                  <h6 class="Skillsmini">Skills</h6>
-                  <h6 class="Skillsmini">Channels</h6>
-                  <h6 class="Skillsmini">Studies</h6>
-                  <h6 class="Skillsmini">Interest</h6>
-                </div>
-                <div class="row">
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">X</button>
-                  </div>
-                  <div class="col-6">
-                    <button type="button" class="btn btn-light">MP</button>
-                  </div>
-                  
-                
-              </div>
-                
-              </div>  
-              </div>
-            </div>
-          <?php endfor ?> -->
          </div>
          
             

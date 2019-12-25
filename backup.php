@@ -33,7 +33,7 @@ if(isset($_SESSION["usuario"])){
   				<div class="row">
 
             <div class="col-12 text-center">
-              <div class=" <?php echo  $estilos->getEstado() ?>" role="alert">
+              <div class=" <?php echo $mensajeClases["estado"] $estilos->getEstado() ?>" role="alert">
                Enhorabuena ya formas parte de CodersPlug
               </div>
               <h2 class="blanco">Forma parte de <span class="verde">Coders</span>Plug</h2>
@@ -64,29 +64,29 @@ if(isset($_SESSION["usuario"])){
                     </div>                  
                   <div class="form-row">
                     <div class="col form-group ">  
-                      <input type="text" name="nombre" id="nombre" class="form-control <?php echo $estilos->getNombre()["input_color"] ?> " placeholder="Nombre" value="<?php echo $estilos->getNombre()["input_placeholder"]?>">
-                      <div class="<?php echo $estilos->getNombre()["clase"] ?>">
-                        <?php echo $estilos->getNombre()["mensaje"] ?>
+                      <input type="text" name="nombre" id="nombre" class="form-control <?php echo $mensajeClases["nombre"]["input_color"] ?> " placeholder="Nombre" value="<?php echo $mensajeClases["nombre"]["input_placeholder"] ?>">
+                      <div class="<?php echo $mensajeClases["nombre"]["clase"] ?>">
+                        <?php echo $mensajeClases["nombre"]["mensaje"] ?>
                       </div>
                     </div> <!-- form-group -->
                     <div class="col form-group">
-                      <input type="text" name="apellido" id="apellido" class="form-control <?php echo $estilos->getApellido()["input_color"] ?>" placeholder="Apellido" value="<?php echo $estilos->getApellido()["input_placeholder"] ?>">
-                      <div class="<?php echo $estilos->getApellido()["clase"] ?>">
-                        <?php echo $estilos->getApellido()["mensaje"] ?>
+                      <input type="text" name="apellido" id="apellido" class="form-control <?php echo $mensajeClases["apellido"]["input_color"] ?>" placeholder="Apellido" value="<?php echo $mensajeClases["apellido"]["input_placeholder"] ?>">
+                      <div class="<?php echo $mensajeClases["apellido"]["clase"] ?>">
+                        <?php echo $mensajeClases["apellido"]["mensaje"] ?>
                       </div>
                       
                     </div> <!-- form-group -->
                   </div> <!-- form-row -->
                   <div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control <?php echo $estilos->getEmail()["input_color"] ?>" placeholder="Correo electronico" value="<?php echo $estilos->getEmail()["input_placeholder"] ?>">
-                    <div class="<?php echo $estilos->getEmail()["clase"] ?>">
-                        <?php echo $estilos->getEmail()["mensaje"] ?>
+                    <input type="email" name="email" id="email" class="form-control <?php echo $mensajeClases["email"]["input_color"] ?>" placeholder="Correo electronico" value="<?php echo $mensajeClases["email"]["input_placeholder"] ?>">
+                    <div class="<?php echo $mensajeClases["email"]["clase"] ?>">
+                        <?php echo $mensajeClases["email"]["mensaje"] ?>
                       </div>
                     
                   </div>
                   <!--Pregunta secreta-->
                         <div class="input-group mb-3">
-                          <input type="text" class="form-control <?php echo $estilos->getPregyrest()["input_color"] ?> " placeholder="Respuesta" name="respuesta" value="<?php echo $estilos->getPregyrest()["input_placeholder"] ?>">
+                          <input type="text" class="form-control <?php echo $mensajeClases["pregyrest"]["input_color"] ?> " placeholder="Respuesta" name="respuesta" value="<?php echo $mensajeClases["pregyrest"]["input_placeholder"] ?>">
                            <select class="custom-select" id="inputGroupSelect02" name="pregunta">
                               <option selected>Pregunta secreta</option>
                               <option value="Amor platonico">Amor platonico</option>
@@ -96,8 +96,8 @@ if(isset($_SESSION["usuario"])){
                               <option value="Nombre de tu primer pareja">Nombre de tu primer pareja</option>
                             </select>
                         </div>
-                         <div class="<?php echo $estilos->getPregyrest()["clase"] ?>">
-                          <?php echo $estilos->getPregyrest()["mensaje"] ?>
+                         <div class="<?php echo $mensajeClases["pregyrest"]["clase"] ?>">
+                          <?php echo $mensajeClases["pregyrest"]["mensaje"] ?>
                         </div>
 
                    <!-- form-group -->
@@ -110,11 +110,11 @@ if(isset($_SESSION["usuario"])){
                       <input class="form-check-input" type="radio" name="genero" id="genero" value="female">
                       <span class="form-check-label"> Femenino</span>
                     </label>
-                  </div> <!-- form-group --> 
+                  </div> <!-- form-group -->
                   <div class="form-group">
-                    <input class="form-control <?php echo $estilos->getPassword()["input_color"] ?>" name="password" type="password" placeholder="Contraseña" value="<?php echo $estilos->getPassword()["input_placeholder"] ?>">
-                    <div class="<?php echo $estilos->getPassword()["clase"] ?>">
-                        <?php echo $estilos->getPassword()["mensaje"] ?>
+                    <input class="form-control <?php echo $mensajeClases["password"]["input_color"] ?>" name="password" type="password" placeholder="Contraseña" value="<?php echo $mensajeClases["password"]["input_placeholder"] ?>">
+                    <div class="<?php echo $mensajeClases["password"]["clase"] ?>">
+                        <?php echo $mensajeClases["password"]["mensaje"] ?>
                       </div>
                     
                   </div> <!-- form-group -->
